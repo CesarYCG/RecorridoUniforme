@@ -57,7 +57,7 @@ Romania.agregar_camino("Oradea","Sibiu",151)
 Romania.agregar_camino("Sibiu","Oradea",151)
 
 Romania.agregar_camino("Oradea","Zerind",71)
-Romania.agregar_camino("Zerind","Oradea"71)
+Romania.agregar_camino("Zerind","Oradea",71)
 
 Romania.agregar_camino("Zerind","Arad",75)
 Romania.agregar_camino("Arad","Zerind",75)
@@ -120,5 +120,20 @@ Romania.agregar_camino("Iasi","Vaslui",92)
 
 Romania.agregar_camino("Iasi","Neamt",87)
 Romania.agregar_camino("Neamt","Iasi",87)
+
+# Funcion para resolver un recorrido dado un mapa
+def metodo_uniforme(mapa,ciudad_inicio,ciudad_final):
+    if ciudad_inicio not in mapa.ciudad: # Comprobamos si existe ciudad_inicio
+        print("ERROR: '{}' no se encuentra en el mapa!".format(ciudad_inicio))
+        return
+    elif ciudad_final not in mapa.ciudad:  # Comprobamos si existe ciudad_final
+        print("ERROR: '{}' no se encuentra en el mapa!".format(ciudad_final))
+        return
+    elif ciudad_inicio == ciudad_final:
+        print("AVISO: La ciudad de inicio y ciudad destino son iguales!")
+        return
+    
+
+metodo_uniforme(Romania,"Vaslui","Zerind")
 
 
