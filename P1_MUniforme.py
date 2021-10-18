@@ -9,7 +9,7 @@ que tiene el menor costo en ruta
 """
 
 import collections
-#import math
+import math
 
 # Clase que servirá para mapear las ciudades
 class MapaCiudades:
@@ -122,18 +122,48 @@ Romania.agregar_camino("Iasi","Neamt",87)
 Romania.agregar_camino("Neamt","Iasi",87)
 
 # Funcion para resolver un recorrido dado un mapa
-def metodo_uniforme(mapa,ciudad_inicio,ciudad_final):
+def recorre_mapa(mapa,ciudad_inicio,ciudad_final):
     if ciudad_inicio not in mapa.ciudad: # Comprobamos si existe ciudad_inicio
         print("ERROR: '{}' no se encuentra en el mapa!".format(ciudad_inicio))
         return
     elif ciudad_final not in mapa.ciudad:  # Comprobamos si existe ciudad_final
         print("ERROR: '{}' no se encuentra en el mapa!".format(ciudad_final))
         return
-    elif ciudad_inicio == ciudad_final:
+    elif ciudad_inicio == ciudad_final: # Si las ciudades son iguales
         print("AVISO: La ciudad de inicio y ciudad destino son iguales!")
         return
+
+"""
+    # Comenzando la iteracion del algoritmo
+    ciudades_recorridas = []
+    costo_total = 0
+    #while ciudad_inicio != ciudad_final: # Mientras no hayamos llegado a ciudad_final
+    #    ciudades_recorridas.append(ciudad_inicio)
+    #    costo_total += costo_total
+    #    ciudad_inicio,costo_total = metodo_uniforme(mapa,ciudad_inicio) # Regresamos la nueva ciudad y su costo
+    metodo_uniforme(mapa,ciudad_inicio)   
     
+def metodo_uniforme(mapa,ciudad_actual):
+    # dos dicc
+    ciudades_visitadas = set()
+    frontera = dict.fromkeys(list(mapa.ciudad), math.inf) #Ciudades con valor inf
+    explorado = dict.fromkeys(list(mapa.ciudad), None) # Ciudades con valor none
+    #delta[ciudad_actual] = 0 # Para la ciudad donde nos encontremos
+    while ciudades_visitadas != mapa.ciudad:
 
-metodo_uniforme(Romania,"Vaslui","Zerind")
+    #return (ciudad_actual,costo)
 
 
+
+#recorre_mapa(Romania,"Eforie","Urziceni")
+#print(Romania.caminos)
+
+#Playground
+#delta = dict.fromkeys(list(Romania.ciudad), math.inf)
+#print("DELTA\n",delta)
+#previo = dict.fromkeys(list(Romania.ciudad), None)
+#print("PREVIO\n",previo)
+#print(Romania.ciudad)
+#delta["Zerind"] = 0
+#print(delta)
+"""
